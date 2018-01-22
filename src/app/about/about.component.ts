@@ -10,9 +10,11 @@ import { DataService } from '../data.service';
 export class AboutComponent implements OnInit {
 
 	goals: any;
+	requireValue: boolean=true;
 
   constructor(private route:ActivatedRoute, private _data: DataService) {
   	this.route.params.subscribe(res=> console.log(res.id));
+  	
   	 }
 
   ngOnInit() {

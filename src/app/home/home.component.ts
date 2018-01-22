@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger,style,transition,animate,keyframes,query,stagger}  from '@angular/animations';
 import { DataService } from '../data.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-home',
@@ -29,17 +30,19 @@ import { DataService } from '../data.service';
   ]
 })
 export class HomeComponent implements OnInit {
-
+name = 'admin';
 itemCount: number = 4;
 btnText: string = "Add an Item";
 goalText: string = "Life of light";
 goals=[];
-  constructor(private _data:DataService) { }
+  constructor(private _data:DataService, private myAwesomeService: UserService) { }
 
   ngOnInit() { 
   	this._data.goal.subscribe(res=> this.goals = res);
   	this.itemCount = this.goals.length;
   	this._data.changeGoal(this.goals);
+  	this.name = this.myAwesomeService.username;
+  	console.log('Is User Logged In?....', this.myAwesomeService.getUserLoggedIn());
   }
 
   addItem() {

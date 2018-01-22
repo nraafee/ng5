@@ -8,20 +8,33 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import 'hammerjs';
+import { ContentComponent } from './content/content.component';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
+    ContentComponent,
+    LoginFormComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatButtonModule, 
+    MatCheckboxModule
   ],
+  exports: [MatButtonModule, MatCheckboxModule],
   providers: [DataService],
   bootstrap: [AppComponent]
 })

@@ -1,5 +1,12 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<app-header *ngIf="userIsLogged()"></app-header>
+<div id="fullpage">
+   <router-outlet></router-outlet>
+</div>
+<app-footer *ngIf="userIsLogged()"></app-footer>
+<!--
 <ul><li><a routerLink="">Home</a></li>
 <li><a routerLink="about/48">About</a></li></ul>
 
 <router-outlet></router-outlet>
+!-->

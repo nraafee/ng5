@@ -1,7 +1,5 @@
 <p>
-  home works!{{itemCount}}
-
- 
+  home works!{{itemCount}} 
 </p>
 <div class="containercolor-light" [@goals]= "goals.length">
 	<div class="col">
@@ -13,7 +11,9 @@
   	</div>
 
   <div class="col">
-  	<p class="life-container" *ngFor="let goal of goals let i=index" (click)="removeItem(i)"> {{ goal }} </p>
+  	<p class="life-container" *ngFor="let goal of goals let i=index" (click)="removeItem(i)"> {{ goal }} 
+  	<button mat-button>Delete</button>
+  	</p>
   </div>
 </div>
 
