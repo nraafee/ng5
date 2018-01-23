@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class UserService {
 
-  private isUserLoggedIn = false;
+  public isUserLoggedIn = false;
   public username;
 
   constructor() {

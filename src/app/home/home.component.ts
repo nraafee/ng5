@@ -33,34 +33,34 @@ export class HomeComponent implements OnInit {
 name = 'admin';
 itemCount: number = 4;
 btnText: string = "Add an Item";
-goalText: string = "Life of light";
+goalText: string = "Add Client Name";
 goals=[];
   constructor(private _data:DataService, private myAwesomeService: UserService) { }
 
   ngOnInit() { 
   	this._data.goal.subscribe(res=> this.goals = res);
-  	this.itemCount = this.goals.length;
+  	this.itemCount = this.goals.clients.length;
   	this._data.changeGoal(this.goals);
   	this.name = this.myAwesomeService.username;
   	console.log('Is User Logged In?....', this.myAwesomeService.getUserLoggedIn());
   }
 
   addItem() {
-  	if(this.goalText !== "") {
-	  this.goals.push(this.goalText);
+  	if(this.goalText !== "" && this.goalText !== "Add Client Name") {
+	  this.goals.clients.push(this.goalText);
 	  this.goalText ='';
-	  this.itemCount = this.goals.length;
+	  this.itemCount = this.goals.clients.length;
 	  this._data.changeGoal(this.goals);	  
 	}
   }
 
    removeItem(item) {
-	  this.goals.splice(item, 1);
-	  this.itemCount = this.goals.length-1;
+	  this.goals.clients.splice(item, 1);
+	  this.itemCount = this.goals.clients.length-1;
 	  if(this.itemCount === -1) {
-	   this.itemCount = 0	   
-	   }
-	   this._data.changeGoal(this.goals);
+	   	this.itemCount = 0	   
+	  }
+	  this._data.changeGoal(this.goals);
   }
 
 

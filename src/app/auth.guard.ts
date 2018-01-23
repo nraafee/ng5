@@ -10,10 +10,16 @@ export class AuthGuard implements CanActivate {
   constructor( private user: UserService, private router: Router) {}
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-  	if (!this.user.isUserLoggedIn) {
+  	
+  	if (localStorage.getItem('currentUser')) {
+            // logged in so return true
+            return true;
+    } 
+  	else if(!this.user.isUserLoggedIn) {
   		this.router.navigate(['/']);
     	console.log("You are Not Authenticated !........");
-  	}    
+  	} 
+  	 
     return this.user.getUserLoggedIn();
   }
 }

@@ -22,8 +22,16 @@ export class LoginFormComponent implements OnInit {
  	console.log(userName, password);
  	if (userName==="admin" && password === "admin") {
  		this.user.setUserLoggedIn();
+ 		localStorage.setItem('currentUser', "admin");
  		this.router.navigate(['home']);
  	}
+ 	
   }
+
+
+  logout() {
+        // remove user from local storage to log user out
+        localStorage.removeItem('currentUser');
+    }
 
 }

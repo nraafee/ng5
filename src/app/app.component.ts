@@ -17,8 +17,11 @@ export class AppComponent {
   	this.loginStatus = this.user.getUserLoggedIn();
   }
 
-  userIsLogged() {
-  	this.loginStatus = this.user.getUserLoggedIn()
+  userIsLogged() {  	
+  	if (localStorage.getItem('currentUser')) {
+  		this.user.setUserLoggedIn();
+  	}
+  	this.loginStatus = this.user.getUserLoggedIn();
   	return this.loginStatus;
   }
 }
