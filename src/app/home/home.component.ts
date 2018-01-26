@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { trigger,style,transition,animate,keyframes,query,stagger}  from '@angular/animations';
 import { DataService } from '../data.service';
 import { UserService } from '../user.service';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -35,7 +36,7 @@ itemCount: number = 4;
 btnText: string = "Add an Item";
 goalText: string = "Add Client Name";
 goals=[];
-  constructor(private _data:DataService, private myAwesomeService: UserService) { }
+  constructor(private _data:DataService, private myAwesomeService: UserService, private router: Router) { }
 
   ngOnInit() { 
   	this._data.goal.subscribe(res=> this.goals = res);
@@ -63,5 +64,9 @@ goals=[];
 	  this._data.changeGoal(this.goals);
   }
 
+  clientDetails(item, clientName) {
+	 console.log(item, clientName);
+	 this.router.navigate(['home/', item]);
+  }
 
 }

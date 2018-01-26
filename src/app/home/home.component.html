@@ -1,33 +1,35 @@
-<section>
-  <h3>Listed Clients With Tech Mahindra: {{itemCount}} </h3> 
-</section>
-<div class="containercolor-light" [@goals]= "goals.length">
-	<div class="col">
- 		<form>
-  			<input type="text" class="txt" name="item" placeholder="Client Name" [(ngModel)]="goalText">
-  			<input type="submit" class="btn" [value]="btnText" (click)="addItem()">
-  		</form>
-  	</div>
+<div class="container">
+	<section>
+	  <h3>Listed Clients With Tech Mahindra: {{itemCount}} </h3> 
+	  <div class="containercolor-light" [@goals]= "goals.length">
+		<div class="col">
+	 		<form>
+	  			<input type="text" class="txt" name="item" placeholder="Client Name" [(ngModel)]="goalText">
+	  			<input type="submit" class="btn" [value]="btnText" (click)="addItem()">
+	  		</form>
+	  	</div>
 
-  <div class="col">
-  	<h4 class="card-title">{{ goals.company }}</h4>
-  	<table class="table table-inverse" width="50%">
-	  <thead class="thead-dark">
-	    <tr scope="row">
-	      <th>#</th>
-	      <th>Client</th>
-	      <th>Action</th>
-	    </tr>
-	  </thead>
-	  <tbody>
-	  	<tr scope="row" class="life-container" *ngFor="let goal of goals.clients let i=index" (click)="removeItem(i)">
-	  		<td>{{ index }}</td>
-	  		<td> {{ goal }}</td>
-	  		<td><button mat-button>Delete</button></td>
-	  	</tr>
-	  </tbody>
-	</table>
-  </div>
+		<div class="col">
+			<h4 class="card-title">{{ goals.company }}</h4>
+			<table class="table table-inverse" width="50%">
+			  <thead class="thead-dark">
+			    <tr scope="row">
+			      <th>#</th>
+			      <th>Client</th>
+			      <th>Action</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  	<tr scope="row" class="life-container" *ngFor="let goal of goals.clients let i=index"  (click)="clientDetails(i, goal)">
+			  		<td>{{ i+1 }}</td>
+			  		<td> {{ goal }}</td>
+			  		<td><button mat-button (click)="removeItem(i)">Delete</button></td>
+			  	</tr>
+			  </tbody>
+			</table>
+		</div>
+		</div>
+	</section>	
 </div>
 
 
