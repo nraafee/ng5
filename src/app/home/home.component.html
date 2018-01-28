@@ -20,9 +20,9 @@
 			    </tr>
 			  </thead>
 			  <tbody>
-			  	<tr scope="row" class="life-container" *ngFor="let goal of goals.clients let i=index"  (click)="clientDetails(i, goal, $event)">
+			  	<tr scope="row" class="life-container" *ngFor="let goal of goals let i=index"  (click)="clientDetails(i, goal, $event)">
 			  		<td>{{ i+1 }}</td>
-			  		<td> {{ goal }}</td>
+			  		<td> {{ goal.client}}</td>
 			  		<td><button mat-button (click)="removeItem(i)">Delete</button></td>
 			  	</tr>
 			  </tbody>

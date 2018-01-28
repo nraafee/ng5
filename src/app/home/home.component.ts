@@ -36,11 +36,18 @@ itemCount: number = 4;
 btnText: string = "Add an Item";
 goalText: string = "Add Client Name";
 goals=[];
+clients= [];
   constructor(private _data:DataService, private myAwesomeService: UserService, private router: Router) { }
 
   ngOnInit() { 
-  	this._data.goal.subscribe(res=> this.goals = res);
-  	this.itemCount = this.goals.clients.length;
+  	
+  	//this._data.goal.subscribe(res=> this.goals = res);
+  	
+  	this._data.getClients().subscribe((data:any[]) => {
+      this.goals = data;
+      this.itemCount = this.goals.length;
+      console.log(this.goals, this.itemCount);
+    });
   	this._data.changeGoal(this.goals);
   	this.name = this.myAwesomeService.username;
   	console.log('Is User Logged In?....', this.myAwesomeService.getUserLoggedIn());

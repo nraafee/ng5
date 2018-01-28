@@ -28,10 +28,11 @@ resourceDetail = this.resourceDetails.asObservable();
   	 return this._http.get("https://my-json-server.typicode.com/nraafee/demo/resoursedetail/?client="+ data);
   }
 
-  changeGoal(goal) {
-  	this.goals.next(goal);
+  public getClients(){
+  	 return this._http.get("https://my-json-server.typicode.com/nraafee/demo/resoursedetail");
   }
 
+  
   setParams(item) {
   	this.item= item;
   }
@@ -40,7 +41,11 @@ resourceDetail = this.resourceDetails.asObservable();
   	return this.item;  	
   }
 
+  /* changeGoal(goal) {
+  	this.goals.next(goal);
+  }
+
   changeDetails(resourceDetail) {
   	this.resourceDetails.next(resourceDetail);
-  }
+  } */
 }
