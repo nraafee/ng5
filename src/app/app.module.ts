@@ -15,6 +15,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomedetailComponent } from './homedetail/homedetail.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { HomedetailComponent } from './homedetail/homedetail.component';
     FormsModule,
     BrowserAnimationsModule,
     MatButtonModule, 
-    MatCheckboxModule
+    MatCheckboxModule,
+    HttpClientModule
   ],
   exports: [MatButtonModule, MatCheckboxModule],
   providers: [DataService],

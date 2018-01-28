@@ -64,8 +64,10 @@ goals=[];
 	  this._data.changeGoal(this.goals);
   }
 
-  clientDetails(item, clientName) {
-	 console.log(item, clientName);
+  clientDetails(item, clientName, event) {
+  	 let data = {"id": item, "name": event.target.innerText};
+	 console.log(item, clientName, event);
+	 this._data.setParams(data);
 	 this.router.navigate(['home/', item]);
   }
 

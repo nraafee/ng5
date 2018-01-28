@@ -1,0 +1,22 @@
+{
+	"resoursedetail": [{
+			"client": "GE Energy",
+			"resources": [{
+				"name": "Rakesh",
+				"skills": "UI Developer"
+			}]
+		},
+		{
+			"client": "GE Oil and Gas",
+			"resources": [{
+					"name": "Dilip",
+					"skills": "UI Developer"
+				},
+				{
+					"name": "mamtha",
+					"skills": "UI Developer"
+				}
+			]
+		}
+	]
+}

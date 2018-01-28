@@ -1,6 +1,12 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
+import jsondata from './jsondata/resourse.json';
+import { HttpClient, HttpClientModule} from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+import { map } from 'rxjs/operators';
+
+
 @Injectable()
 export class DataService {
 
@@ -13,11 +19,25 @@ private resourceDetails = new BehaviorSubject<any>([
  
 goal = this.goals.asObservable();
 resourceDetail = this.resourceDetails.asObservable();
+  public result:any={};
+  constructor(private _http: HttpClient) {
+  		
+   }
 
-  constructor() { }
+  public getresourseDetail(data){
+  	 return this._http.get("https://my-json-server.typicode.com/nraafee/demo/resoursedetail/?client="+ data);
+  }
 
   changeGoal(goal) {
   	this.goals.next(goal);
+  }
+
+  setParams(item) {
+  	this.item= item;
+  }
+
+  getParams() {
+  	return this.item;  	
   }
 
   changeDetails(resourceDetail) {
